@@ -13,7 +13,7 @@ jobs:
     steps:
       # Первый шаг использует действие "actions/checkout@v3", которое извлекает репозиторий для дальнейшей работы с ним
       - uses: actions/checkout@v4
-      - uses: actions/setup-go@v4
+      - uses: actions/setup-go@v5
 
       # Шаг с именем "Build"
       - name: Build
