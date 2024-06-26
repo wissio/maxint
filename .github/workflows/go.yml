@@ -1,26 +1,20 @@
 name: GO
-run-name: New commit pushed
 
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
 
 jobs:
   # Задание производит сборку приложения
+
   build:
     runs-on: ubuntu-latest
-
     # Шаги задания
     steps:
       # Первый шаг использует действие "actions/checkout@v3", которое извлекает репозиторий для дальнейшей работы с ним
-      - uses: actions/checkout@v3
-      # Шаг с именем "Set up Go"
-      - name: Set up GO
-        uses: actions/setup-go@v4
-        with:
-          go-version: "1.20"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v4
+
       # Шаг с именем "Build"
       - name: Build
         # Этот шаг просто выполняет команду 'go build -v ./...'
@@ -32,7 +26,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - uses: actions/setup-go@v4
       # Шаг с именем "Test"
       - name: Test
